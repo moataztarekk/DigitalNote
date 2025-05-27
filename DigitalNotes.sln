@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36121.58 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalNotes", "DigitalNotes\DigitalNotes.csproj", "{CE4B70DD-70D2-4963-B945-42B410EB9C4C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE4B70DD-70D2-4963-B945-42B410EB9C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE4B70DD-70D2-4963-B945-42B410EB9C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE4B70DD-70D2-4963-B945-42B410EB9C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE4B70DD-70D2-4963-B945-42B410EB9C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2BE15C7-9908-449D-AB9E-8E1A2F025CE7}
+	EndGlobalSection
+EndGlobal

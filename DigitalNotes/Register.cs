@@ -14,6 +14,7 @@ namespace DigitalNotes
     public partial class Register : Form
     {
         List<User> users = Repositry.getUsers();
+
         public Register()
         {
             InitializeComponent();
@@ -24,30 +25,15 @@ namespace DigitalNotes
             string username = regUsernameBox.Text;
             string password = regPasswordBox.Text;
 
-            if (username.Length == 0 || password.Length == 0)
-            {
-                var popup = MessageBox.Show("Username or password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            Login loginForm = new Login();
+            loginForm.Show();
 
-            foreach (var myuser in users)
-            {
-                if(myuser.Name == username)
-                {
-                    var result = MessageBox.Show("User is already registered. Do you want to login?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        this.Close();
-                    }
-                    return;
-                }
-            }
+            this.Hide();
+        }
 
-            User user = new User() { Name = username, Password = password };
-            MessageBox.Show("You entered: " + username);
-            MessageBox.Show("You entered: " + password);
-            Repositry.addUser(user);
-            this.Close();
+        private void regUsernameBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

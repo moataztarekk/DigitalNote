@@ -39,18 +39,26 @@
             // LoginBtn
             // 
             LoginBtn.BackColor = SystemColors.Info;
+<<<<<<< HEAD
             LoginBtn.Location = new Point(177, 177);
+=======
+            LoginBtn.Location = new Point(177, 145);
+>>>>>>> 63a0501cdf81bc8a3ea53c84a5d9fad084c88654
             LoginBtn.Margin = new Padding(3, 2, 3, 2);
             LoginBtn.Name = "LoginBtn";
             LoginBtn.Size = new Size(134, 39);
             LoginBtn.TabIndex = 0;
             LoginBtn.Text = "Login";
-            LoginBtn.UseVisualStyleBackColor = false;
+            LoginBtn.UseVisualStyleBackColor = true;
             LoginBtn.Click += LoginBtn_Click;
             // 
             // LogUsernameBox
             // 
+<<<<<<< HEAD
             LogUsernameBox.Location = new Point(177, 68);
+=======
+            LogUsernameBox.Location = new Point(177, 46);
+>>>>>>> 63a0501cdf81bc8a3ea53c84a5d9fad084c88654
             LogUsernameBox.Margin = new Padding(3, 2, 3, 2);
             LogUsernameBox.Name = "LogUsernameBox";
             LogUsernameBox.Size = new Size(227, 23);
@@ -58,7 +66,11 @@
             // 
             // LogPasswordBox
             // 
+<<<<<<< HEAD
             LogPasswordBox.Location = new Point(177, 125);
+=======
+            LogPasswordBox.Location = new Point(177, 103);
+>>>>>>> 63a0501cdf81bc8a3ea53c84a5d9fad084c88654
             LogPasswordBox.Margin = new Padding(3, 2, 3, 2);
             LogPasswordBox.Name = "LogPasswordBox";
             LogPasswordBox.Size = new Size(227, 23);
@@ -67,7 +79,11 @@
             // LogUsernameLbl
             // 
             LogUsernameLbl.AutoSize = true;
+<<<<<<< HEAD
             LogUsernameLbl.Location = new Point(59, 68);
+=======
+            LogUsernameLbl.Location = new Point(56, 50);
+>>>>>>> 63a0501cdf81bc8a3ea53c84a5d9fad084c88654
             LogUsernameLbl.Name = "LogUsernameLbl";
             LogUsernameLbl.Size = new Size(60, 15);
             LogUsernameLbl.TabIndex = 3;
@@ -76,7 +92,11 @@
             // LogPasswordLbl
             // 
             LogPasswordLbl.AutoSize = true;
+<<<<<<< HEAD
             LogPasswordLbl.Location = new Point(59, 128);
+=======
+            LogPasswordLbl.Location = new Point(59, 107);
+>>>>>>> 63a0501cdf81bc8a3ea53c84a5d9fad084c88654
             LogPasswordLbl.Name = "LogPasswordLbl";
             LogPasswordLbl.Size = new Size(57, 15);
             LogPasswordLbl.TabIndex = 4;
@@ -84,13 +104,21 @@
             // 
             // RegisterBtn
             // 
+<<<<<<< HEAD
             RegisterBtn.BackColor = SystemColors.ButtonHighlight;
             RegisterBtn.Location = new Point(177, 234);
+=======
+            RegisterBtn.Location = new Point(177, 210);
+>>>>>>> 63a0501cdf81bc8a3ea53c84a5d9fad084c88654
             RegisterBtn.Name = "RegisterBtn";
             RegisterBtn.Size = new Size(134, 39);
             RegisterBtn.TabIndex = 5;
             RegisterBtn.Text = "Register";
+<<<<<<< HEAD
             RegisterBtn.UseVisualStyleBackColor = false;
+=======
+            RegisterBtn.UseVisualStyleBackColor = true;
+>>>>>>> 63a0501cdf81bc8a3ea53c84a5d9fad084c88654
             RegisterBtn.Click += RegisterBtn_Click;
             // 
             // Login
@@ -98,7 +126,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
+<<<<<<< HEAD
             ClientSize = new Size(479, 295);
+=======
+            ClientSize = new Size(484, 261);
+>>>>>>> 63a0501cdf81bc8a3ea53c84a5d9fad084c88654
             Controls.Add(RegisterBtn);
             Controls.Add(LogPasswordLbl);
             Controls.Add(LogUsernameLbl);

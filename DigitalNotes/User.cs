@@ -15,6 +15,5 @@ namespace DigitalNotes
         {
             return $"Name: {Name}, Password: {Password}";
         }
-
     }
 }

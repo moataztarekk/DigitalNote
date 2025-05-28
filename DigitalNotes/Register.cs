@@ -13,7 +13,7 @@ namespace DigitalNotes
 {
     public partial class Register : Form
     {
-        List<User> users = Repositry.getUsers();
+        List<User> users = Repository.getUsers();
 
         public Register()
         {
@@ -25,15 +25,30 @@ namespace DigitalNotes
             string username = regUsernameBox.Text;
             string password = regPasswordBox.Text;
 
-            Login loginForm = new Login();
-            loginForm.Show();
+            if (username.Length == 0 || password.Length == 0)
+            {
+                var popup = MessageBox.Show("Username or password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            this.Hide();
-        }
+            foreach (var myuser in users)
+            {
+                if (myuser.Name == username)
+                {
+                    var result = MessageBox.Show("User is already registered. Do you want to login?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        this.Close();
+                    }
+                    return;
+                }
+            }
 
-        private void regUsernameBox_TextChanged(object sender, EventArgs e)
-        {
-
+            User user = new User() { Name = username, Password = password };
+            MessageBox.Show("You entered: " + username);
+            MessageBox.Show("You entered: " + password);
+            Repository.addUser(user);
+            this.Close();
         }
     }
 }

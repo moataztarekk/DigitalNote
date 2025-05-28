@@ -13,7 +13,7 @@ namespace DigitalNotes
 {
     public partial class Login : Form
     {
-        List<User> users = Repositry.getUsers();
+        List<User> users = Repository.getUsers();
 
         public Login()
         {
@@ -24,6 +24,12 @@ namespace DigitalNotes
         {
             string username = LogUsernameBox.Text;
             string password = LogPasswordBox.Text;
+
+            if (username.Length == 0 || password.Length == 0)
+            {
+                var popup = MessageBox.Show("Username or password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             foreach (var user in users)
             {

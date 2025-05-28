@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DigitalNotes
 {
-    public  class Repositry
+    public class Repository
     {
 
         static List<User> users = new List<User>()
@@ -17,13 +17,11 @@ namespace DigitalNotes
              new User(){ Name = "Mohamed" , Password = "1234"},
         };
 
-<<<<<<< HEAD
         public static void addUser(User user) 
         {
             users.Add(user);
         }
-=======
->>>>>>> 63a0501cdf81bc8a3ea53c84a5d9fad084c88654
+
         public static List<User> getUsers() 
         {
            

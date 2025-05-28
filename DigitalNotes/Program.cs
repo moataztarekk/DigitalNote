@@ -12,7 +12,7 @@ namespace DigitalNotes
             // see https://aka.ms/applicationconfiguration.
             Console.WriteLine("Hello world");
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new Register());
         }
     }
 }

@@ -23,7 +23,7 @@ namespace DigitalNotes
         {
             string username = LogUsernameBox.Text;
             string password = LogPasswordBox.Text;
-            bool findUser = false;
+
             foreach (var user in users)
             {
                 if (user.Name == username)
@@ -32,26 +32,34 @@ namespace DigitalNotes
                     {
                         MessageBox.Show("Login Successfully", "Login", MessageBoxButtons.OK);
                         Form1 form = new Form1();
-                        form.Show();
                         this.Hide();
-                        return;
+                        form.ShowDialog();
+                        this.Show();
                     }
                     else
                     {
                         MessageBox.Show("Password is incorrect!", "Login Failed", MessageBoxButtons.OK);
-                        return;
                     }
+                    return;
                 }
             }
+
             var result = MessageBox.Show("User not found. Do you want to register?", "Not Found", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 Register register = new Register();
-                register.Show();
                 this.Hide();
+                register.ShowDialog();
+                this.Show();
             }
-
         }
 
+        private void RegisterBtn_Click(object sender, EventArgs e)
+        {
+            Register register = new Register();
+            this.Hide();
+            register.ShowDialog();
+            this.Show();
+        }
     }
 }

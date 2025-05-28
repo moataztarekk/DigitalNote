@@ -16,6 +16,7 @@ namespace DigitalNotes
              new User(){ Name = "Nada" , Password = "123456"},
              new User(){ Name = "Mohamed" , Password = "1234"},
         };
+
         public static List<User> getUsers() 
         {
            

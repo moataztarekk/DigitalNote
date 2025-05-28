@@ -13,6 +13,7 @@ namespace DigitalNotes
     public partial class Register : Form
     {
         List<User> users = Repositry.getUsers();
+
         public Register()
         {
             InitializeComponent();
@@ -32,15 +33,7 @@ namespace DigitalNotes
             MessageBox.Show("You entered: " + password);
             users.Add(user);
 
-            Login loginForm = new Login();
-            loginForm.Show();
-
-            this.Hide();
-        }
-
-        private void regUsernameBox_TextChanged(object sender, EventArgs e)
-        {
-
+            this.Close();
         }
     }
 }

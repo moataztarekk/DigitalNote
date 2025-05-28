@@ -33,62 +33,78 @@
             LogPasswordBox = new TextBox();
             LogUsernameLbl = new Label();
             LogPasswordLbl = new Label();
+            RegisterBtn = new Button();
             SuspendLayout();
             // 
             // LoginBtn
             // 
             LoginBtn.BackColor = SystemColors.Info;
-            LoginBtn.Location = new Point(202, 273);
+            LoginBtn.Location = new Point(177, 145);
+            LoginBtn.Margin = new Padding(3, 2, 3, 2);
             LoginBtn.Name = "LoginBtn";
-            LoginBtn.Size = new Size(153, 52);
+            LoginBtn.Size = new Size(134, 39);
             LoginBtn.TabIndex = 0;
             LoginBtn.Text = "Login";
-            LoginBtn.UseVisualStyleBackColor = false;
+            LoginBtn.UseVisualStyleBackColor = true;
             LoginBtn.Click += LoginBtn_Click;
             // 
             // LogUsernameBox
             // 
-            LogUsernameBox.Location = new Point(202, 90);
+            LogUsernameBox.Location = new Point(177, 46);
+            LogUsernameBox.Margin = new Padding(3, 2, 3, 2);
             LogUsernameBox.Name = "LogUsernameBox";
-            LogUsernameBox.Size = new Size(259, 27);
+            LogUsernameBox.Size = new Size(227, 23);
             LogUsernameBox.TabIndex = 1;
             // 
             // LogPasswordBox
             // 
-            LogPasswordBox.Location = new Point(202, 167);
+            LogPasswordBox.Location = new Point(177, 103);
+            LogPasswordBox.Margin = new Padding(3, 2, 3, 2);
             LogPasswordBox.Name = "LogPasswordBox";
-            LogPasswordBox.Size = new Size(259, 27);
+            LogPasswordBox.Size = new Size(227, 23);
             LogPasswordBox.TabIndex = 2;
             // 
             // LogUsernameLbl
             // 
             LogUsernameLbl.AutoSize = true;
-            LogUsernameLbl.Location = new Point(67, 90);
+            LogUsernameLbl.Location = new Point(56, 50);
             LogUsernameLbl.Name = "LogUsernameLbl";
-            LogUsernameLbl.Size = new Size(75, 20);
+            LogUsernameLbl.Size = new Size(60, 15);
             LogUsernameLbl.TabIndex = 3;
             LogUsernameLbl.Text = "Username";
             // 
             // LogPasswordLbl
             // 
             LogPasswordLbl.AutoSize = true;
-            LogPasswordLbl.Location = new Point(67, 170);
+            LogPasswordLbl.Location = new Point(59, 107);
             LogPasswordLbl.Name = "LogPasswordLbl";
-            LogPasswordLbl.Size = new Size(70, 20);
+            LogPasswordLbl.Size = new Size(57, 15);
             LogPasswordLbl.TabIndex = 4;
             LogPasswordLbl.Text = "Password";
             // 
+            // RegisterBtn
+            // 
+            RegisterBtn.Location = new Point(177, 210);
+            RegisterBtn.Name = "RegisterBtn";
+            RegisterBtn.Size = new Size(134, 39);
+            RegisterBtn.TabIndex = 5;
+            RegisterBtn.Text = "Register";
+            RegisterBtn.UseVisualStyleBackColor = true;
+            RegisterBtn.Click += RegisterBtn_Click;
+            // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
-            ClientSize = new Size(547, 393);
+            ClientSize = new Size(484, 261);
+            Controls.Add(RegisterBtn);
             Controls.Add(LogPasswordLbl);
             Controls.Add(LogUsernameLbl);
             Controls.Add(LogPasswordBox);
             Controls.Add(LogUsernameBox);
             Controls.Add(LoginBtn);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Login";
             Text = "Login";
             ResumeLayout(false);
@@ -102,5 +118,6 @@
         private TextBox LogPasswordBox;
         private Label LogUsernameLbl;
         private Label LogPasswordLbl;
+        private Button RegisterBtn;
     }
 }

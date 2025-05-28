@@ -32,8 +32,10 @@ namespace DigitalNotes
                     {
                         MessageBox.Show("Login Successfully", "Login", MessageBoxButtons.OK);
                         Form1 form = new Form1();
-                        form.Show();
                         this.Hide();
+                        form.FormClosed += (s, args) => this.Close();
+                        form.Show();
+                        
                         return;
                     }
                     else
@@ -47,8 +49,11 @@ namespace DigitalNotes
             if (result == DialogResult.Yes)
             {
                 Register register = new Register();
-                register.Show();
                 this.Hide();
+                register.FormClosed += (s, args) => this.Close();
+                register.Show();
+
+                
             }
 
         }

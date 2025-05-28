@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,19 +24,37 @@ namespace DigitalNotes
 
         }
 
+        private void openLoginForm()
+        {
+            Login loginForm = new Login();
+            this.Hide();
+            loginForm.FormClosed += (s, args) => this.Close();
+            loginForm.Show();
+        }
         private void registerBtn_Click(object sender, EventArgs e)
         {
             string username = regUsernameBox.Text;
             string password = regPasswordBox.Text;
+
+            foreach (var myuser in users)
+            {
+                if(myuser.Name == username)
+                {
+                    var result = MessageBox.Show("User is already registered. Do you want to login?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                       openLoginForm();
+                        return;
+                    }
+                }
+                    
+            }
             User user = new User() { Name = username, Password = password };
             MessageBox.Show("You entered: " + username);
             MessageBox.Show("You entered: " + password);
-            users.Add(user);
-
-            Login loginForm = new Login();
-            loginForm.Show();
-
-            this.Hide();
+            Repositry.addUser(user);
+            openLoginForm();
+            
         }
 
         private void regUsernameBox_TextChanged(object sender, EventArgs e)

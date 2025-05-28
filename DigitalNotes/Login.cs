@@ -14,6 +14,7 @@ namespace DigitalNotes
     public partial class Login : Form
     {
         List<User> users = Repositry.getUsers();
+
         public Login()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace DigitalNotes
         {
             string username = LogUsernameBox.Text;
             string password = LogPasswordBox.Text;
-            bool findUser = false;
+
             foreach (var user in users)
             {
                 if (user.Name == username)
@@ -31,32 +32,46 @@ namespace DigitalNotes
                     if (user.Password == password)
                     {
                         MessageBox.Show("Login Successfully", "Login", MessageBoxButtons.OK);
-                        Form1 form = new Form1();
-                        this.Hide();
-                        form.FormClosed += (s, args) => this.Close();
-                        form.Show();
-                        
-                        return;
+                        GoToMainForm();
                     }
                     else
                     {
                         MessageBox.Show("Password is incorrect!", "Login Failed", MessageBoxButtons.OK);
-                        return;
                     }
+                    return;
                 }
             }
+
             var result = MessageBox.Show("User not found. Do you want to register?", "Not Found", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Register register = new Register();
-                this.Hide();
-                register.FormClosed += (s, args) => this.Close();
-                register.Show();
-
-                
+                GoToRegisterForm();
             }
-
         }
 
+        private void RegisterBtn_Click(object sender, EventArgs e)
+        {
+            GoToRegisterForm();
+        }
+
+        private void GoToRegisterForm()
+        {
+            Register register = new Register();
+            this.Hide();
+            register.ShowDialog();
+            LogUsernameBox.Text = "";
+            LogPasswordBox.Text = "";
+            this.Show();
+        }
+
+        private void GoToMainForm()
+        {
+            Form1 form = new Form1();
+            this.Hide();
+            form.ShowDialog();
+            LogUsernameBox.Text = "";
+            LogPasswordBox.Text = "";
+            this.Show();
+        }
     }
 }

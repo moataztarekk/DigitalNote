@@ -10,10 +10,8 @@ namespace DigitalNotes
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            Console.WriteLine("Hello world");
-            Console.WriteLine("not ready");
             ApplicationConfiguration.Initialize();
-            Application.Run(new Register());
+            Application.Run(new Login());
         }
     }
 }

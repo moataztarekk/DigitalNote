@@ -72,9 +72,9 @@ namespace DigitalNotes
 
         private void GoToMainForm()
         {
-            Form1 form = new Form1();
+            Home home = new Home();
             this.Hide();
-            form.ShowDialog();
+            home.ShowDialog();
             LogUsernameBox.Text = "";
             LogPasswordBox.Text = "";
             this.Show();

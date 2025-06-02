@@ -43,9 +43,10 @@
             // 
             // NewNoteBtn
             // 
-            NewNoteBtn.Location = new Point(21, 12);
+            NewNoteBtn.Location = new Point(24, 16);
+            NewNoteBtn.Margin = new Padding(3, 4, 3, 4);
             NewNoteBtn.Name = "NewNoteBtn";
-            NewNoteBtn.Size = new Size(104, 23);
+            NewNoteBtn.Size = new Size(119, 31);
             NewNoteBtn.TabIndex = 0;
             NewNoteBtn.Text = "New Note";
             NewNoteBtn.UseVisualStyleBackColor = true;
@@ -53,27 +54,30 @@
             // 
             // LoadNoteBtn
             // 
-            LoadNoteBtn.Location = new Point(21, 41);
+            LoadNoteBtn.Location = new Point(24, 55);
+            LoadNoteBtn.Margin = new Padding(3, 4, 3, 4);
             LoadNoteBtn.Name = "LoadNoteBtn";
-            LoadNoteBtn.Size = new Size(104, 23);
+            LoadNoteBtn.Size = new Size(119, 31);
             LoadNoteBtn.TabIndex = 1;
             LoadNoteBtn.Text = "Load Note";
             LoadNoteBtn.UseVisualStyleBackColor = true;
             // 
             // NotificationsBtn
             // 
-            NotificationsBtn.Location = new Point(21, 70);
+            NotificationsBtn.Location = new Point(24, 93);
+            NotificationsBtn.Margin = new Padding(3, 4, 3, 4);
             NotificationsBtn.Name = "NotificationsBtn";
-            NotificationsBtn.Size = new Size(104, 23);
+            NotificationsBtn.Size = new Size(119, 31);
             NotificationsBtn.TabIndex = 2;
             NotificationsBtn.Text = "Notifications";
             NotificationsBtn.UseVisualStyleBackColor = true;
             // 
             // LogoutBtn
             // 
-            LogoutBtn.Location = new Point(21, 415);
+            LogoutBtn.Location = new Point(24, 553);
+            LogoutBtn.Margin = new Padding(3, 4, 3, 4);
             LogoutBtn.Name = "LogoutBtn";
-            LogoutBtn.Size = new Size(104, 23);
+            LogoutBtn.Size = new Size(119, 31);
             LogoutBtn.TabIndex = 3;
             LogoutBtn.Text = "Logout";
             LogoutBtn.UseVisualStyleBackColor = true;
@@ -85,47 +89,52 @@
             NotesDataGrid.AllowUserToOrderColumns = true;
             NotesDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             NotesDataGrid.Dock = DockStyle.Right;
-            NotesDataGrid.Location = new Point(153, 0);
+            NotesDataGrid.Location = new Point(175, 0);
+            NotesDataGrid.Margin = new Padding(3, 4, 3, 4);
             NotesDataGrid.Name = "NotesDataGrid";
             NotesDataGrid.ReadOnly = true;
+            NotesDataGrid.RowHeadersWidth = 51;
             NotesDataGrid.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             NotesDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            NotesDataGrid.Size = new Size(647, 450);
+            NotesDataGrid.Size = new Size(739, 600);
             NotesDataGrid.TabIndex = 4;
+            NotesDataGrid.CellContentClick += NotesDataGrid_CellContentClick;
             NotesDataGrid.CellDoubleClick += NotesDataGrid_CellDoubleClick;
             NotesDataGrid.MouseDown += NotesDataGrid_MouseDown;
             // 
             // NotesContextMenu
             // 
+            NotesContextMenu.ImageScalingSize = new Size(20, 20);
             NotesContextMenu.Items.AddRange(new ToolStripItem[] { editNoteToolStripMenuItem, deleteNoteToolStripMenuItem });
             NotesContextMenu.Name = "contextMenuStrip1";
-            NotesContextMenu.Size = new Size(137, 48);
+            NotesContextMenu.Size = new Size(160, 52);
             NotesContextMenu.Click += NotesContextMenu_Click;
             // 
             // editNoteToolStripMenuItem
             // 
             editNoteToolStripMenuItem.Name = "editNoteToolStripMenuItem";
-            editNoteToolStripMenuItem.Size = new Size(136, 22);
+            editNoteToolStripMenuItem.Size = new Size(159, 24);
             editNoteToolStripMenuItem.Text = "Edit Note";
             editNoteToolStripMenuItem.Click += editNoteToolStripMenuItem_Click;
             // 
             // deleteNoteToolStripMenuItem
             // 
             deleteNoteToolStripMenuItem.Name = "deleteNoteToolStripMenuItem";
-            deleteNoteToolStripMenuItem.Size = new Size(136, 22);
+            deleteNoteToolStripMenuItem.Size = new Size(159, 24);
             deleteNoteToolStripMenuItem.Text = "Delete Note";
             deleteNoteToolStripMenuItem.Click += deleteNoteToolStripMenuItem_Click;
             // 
             // Home
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(NotesDataGrid);
             Controls.Add(LogoutBtn);
             Controls.Add(NotificationsBtn);
             Controls.Add(LoadNoteBtn);
             Controls.Add(NewNoteBtn);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Home";
             Text = "Home";
             Load += Home_Load;

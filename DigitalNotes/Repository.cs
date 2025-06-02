@@ -30,6 +30,15 @@ namespace DigitalNotes
             new Note(){ NoteId = 8, Title = "n8", Category = "c4", CreationDate = DateTime.Now, UserId = 1 },
         };
 
+        public static List<string> Categories = new List<string>()
+        {
+            "Work", "Study", "Personal Life", "Tasks", "Ideas"
+        };
+
+        public static void addCategory(string category)
+        {
+            Categories.Add(category);
+        }
         public static void addUser(User user) 
         {
             users.Add(user);

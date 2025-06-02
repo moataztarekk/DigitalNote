@@ -31,19 +31,20 @@
             ConfirmButton = new Button();
             TitleLabel = new Label();
             TitleTextBox = new TextBox();
-            CategoryTextBox = new TextBox();
             CategoryLabel = new Label();
             dateTimePicker1 = new DateTimePicker();
             ReminderDateLabel = new Label();
             CancelButton = new Button();
             ReminderEnable = new CheckBox();
+            addNoteCategorySelector = new CategorySelectorv1();
             SuspendLayout();
             // 
             // ConfirmButton
             // 
-            ConfirmButton.Location = new Point(155, 198);
+            ConfirmButton.Location = new Point(177, 264);
+            ConfirmButton.Margin = new Padding(3, 4, 3, 4);
             ConfirmButton.Name = "ConfirmButton";
-            ConfirmButton.Size = new Size(75, 23);
+            ConfirmButton.Size = new Size(86, 31);
             ConfirmButton.TabIndex = 0;
             ConfirmButton.Text = "Confirm";
             ConfirmButton.UseVisualStyleBackColor = true;
@@ -52,57 +53,53 @@
             // TitleLabel
             // 
             TitleLabel.AutoSize = true;
-            TitleLabel.Location = new Point(74, 28);
+            TitleLabel.Location = new Point(85, 37);
             TitleLabel.Name = "TitleLabel";
-            TitleLabel.Size = new Size(29, 15);
+            TitleLabel.Size = new Size(38, 20);
             TitleLabel.TabIndex = 1;
             TitleLabel.Text = "Title";
             // 
             // TitleTextBox
             // 
-            TitleTextBox.Location = new Point(155, 24);
+            TitleTextBox.Location = new Point(177, 32);
+            TitleTextBox.Margin = new Padding(3, 4, 3, 4);
             TitleTextBox.Name = "TitleTextBox";
-            TitleTextBox.Size = new Size(200, 23);
+            TitleTextBox.Size = new Size(228, 27);
             TitleTextBox.TabIndex = 2;
-            // 
-            // CategoryTextBox
-            // 
-            CategoryTextBox.Location = new Point(155, 82);
-            CategoryTextBox.Name = "CategoryTextBox";
-            CategoryTextBox.Size = new Size(200, 23);
-            CategoryTextBox.TabIndex = 4;
             // 
             // CategoryLabel
             // 
             CategoryLabel.AutoSize = true;
-            CategoryLabel.Location = new Point(48, 86);
+            CategoryLabel.Location = new Point(55, 115);
             CategoryLabel.Name = "CategoryLabel";
-            CategoryLabel.Size = new Size(55, 15);
+            CategoryLabel.Size = new Size(69, 20);
             CategoryLabel.TabIndex = 3;
             CategoryLabel.Text = "Category";
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(219, 144);
+            dateTimePicker1.Location = new Point(250, 192);
+            dateTimePicker1.Margin = new Padding(3, 4, 3, 4);
             dateTimePicker1.MinDate = new DateTime(2025, 5, 31, 0, 0, 0, 0);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(136, 23);
+            dateTimePicker1.Size = new Size(155, 27);
             dateTimePicker1.TabIndex = 5;
             // 
             // ReminderDateLabel
             // 
             ReminderDateLabel.AutoSize = true;
-            ReminderDateLabel.Location = new Point(45, 148);
+            ReminderDateLabel.Location = new Point(51, 197);
             ReminderDateLabel.Name = "ReminderDateLabel";
-            ReminderDateLabel.Size = new Size(58, 15);
+            ReminderDateLabel.Size = new Size(73, 20);
             ReminderDateLabel.TabIndex = 6;
             ReminderDateLabel.Text = "Reminder";
             // 
             // CancelButton
             // 
-            CancelButton.Location = new Point(280, 198);
+            CancelButton.Location = new Point(320, 264);
+            CancelButton.Margin = new Padding(3, 4, 3, 4);
             CancelButton.Name = "CancelButton";
-            CancelButton.Size = new Size(75, 23);
+            CancelButton.Size = new Size(86, 31);
             CancelButton.TabIndex = 7;
             CancelButton.Text = "Cancel";
             CancelButton.UseVisualStyleBackColor = true;
@@ -111,29 +108,41 @@
             // ReminderEnable
             // 
             ReminderEnable.AutoSize = true;
-            ReminderEnable.Location = new Point(155, 148);
+            ReminderEnable.Location = new Point(177, 197);
+            ReminderEnable.Margin = new Padding(3, 4, 3, 4);
             ReminderEnable.Name = "ReminderEnable";
-            ReminderEnable.Size = new Size(15, 14);
+            ReminderEnable.Size = new Size(18, 17);
             ReminderEnable.TabIndex = 8;
             ReminderEnable.UseVisualStyleBackColor = true;
             ReminderEnable.CheckedChanged += ReminderEnable_CheckedChanged;
             // 
+            // addNoteCategorySelector
+            // 
+            addNoteCategorySelector.CategorySelected = "";
+            addNoteCategorySelector.Location = new Point(140, 79);
+            addNoteCategorySelector.Name = "addNoteCategorySelector";
+            addNoteCategorySelector.Size = new Size(438, 111);
+            addNoteCategorySelector.TabIndex = 9;
+            addNoteCategorySelector.Load += categorySelectorv11_Load;
+            // 
             // AddNote
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(386, 253);
+            ClientSize = new Size(441, 337);
+            Controls.Add(addNoteCategorySelector);
             Controls.Add(ReminderEnable);
             Controls.Add(CancelButton);
             Controls.Add(ReminderDateLabel);
             Controls.Add(dateTimePicker1);
-            Controls.Add(CategoryTextBox);
             Controls.Add(CategoryLabel);
             Controls.Add(TitleTextBox);
             Controls.Add(TitleLabel);
             Controls.Add(ConfirmButton);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "AddNote";
             Text = "AddNote";
+            Load += AddNote_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -143,11 +152,11 @@
         private Button ConfirmButton;
         private Label TitleLabel;
         private TextBox TitleTextBox;
-        private TextBox CategoryTextBox;
         private Label CategoryLabel;
         private DateTimePicker dateTimePicker1;
         private Label ReminderDateLabel;
         private Button CancelButton;
         private CheckBox ReminderEnable;
+        private CategorySelectorv1 addNoteCategorySelector;
     }
 }

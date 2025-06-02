@@ -20,7 +20,9 @@ namespace DigitalNotes
 
             this.NoteToEdit = note;
             this.TitleTextBox.Text = this.NoteToEdit.Title;
-            this.CategoryTextBox.Text = this.NoteToEdit.Category;
+            this.categorySelectorv11.LoadCategories();
+
+            this.categorySelectorv11.CategorySelected = this.NoteToEdit.Category;
             this.ReminderEnable.Checked = true ? this.NoteToEdit.ReminderDate != null : false;
             this.dateTimePicker1.Enabled = this.ReminderEnable.Checked;
         }
@@ -39,7 +41,9 @@ namespace DigitalNotes
             }
 
             this.NoteToEdit.Title = this.TitleTextBox.Text;
-            this.NoteToEdit.Category = this.CategoryTextBox.Text;
+            this.NoteToEdit.Category = categorySelectorv11.CategorySelected;
+            if(!Repository.Categories.Contains(categorySelectorv11.CategorySelected))
+                Repository.addCategory(categorySelectorv11.CategorySelected);
 
             if (this.ReminderEnable.Checked == true)
             {
@@ -50,12 +54,17 @@ namespace DigitalNotes
                 this.NoteToEdit.ReminderDate = null;
             }
 
-                this.Close();
+            this.Close();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EditNote_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

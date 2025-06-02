@@ -101,5 +101,10 @@ namespace DigitalNotes
                 }
             }
         }
+
+        private void NotesDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

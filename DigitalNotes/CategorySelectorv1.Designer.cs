@@ -38,7 +38,7 @@
             CBCategorySelector.Name = "CBCategorySelector";
             CBCategorySelector.Size = new Size(228, 28);
             CBCategorySelector.TabIndex = 0;
-            CBCategorySelector.SelectedIndexChanged += CBCategorySelector_SelectedIndexChanged;
+            //CBCategorySelector.SelectedIndexChanged += CBCategorySelector_SelectedIndexChanged;
             // 
             // CategorySelectorv1
             // 
@@ -47,7 +47,7 @@
             Controls.Add(CBCategorySelector);
             Name = "CategorySelectorv1";
             Size = new Size(350, 89);
-            Load += CategorySelectorv1_Load;
+            //Load += CategorySelectorv1_Load;
             ResumeLayout(false);
         }
 

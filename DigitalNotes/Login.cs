@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DigitalNotes.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -13,10 +14,11 @@ namespace DigitalNotes
 {
     public partial class Login : Form
     {
-        List<User> users = Repository.getUsers();
+        public DigitalNoteDbContext db { get; set; }
 
         public Login()
         {
+            this.db = new DigitalNoteDbContext();
             InitializeComponent();
         }
 
@@ -31,9 +33,9 @@ namespace DigitalNotes
                 return;
             }
 
-            foreach (var user in users)
+            foreach (var user in db.Users)
             {
-                if (user.Name == username)
+                if (user.UserName == username)
                 {
                     if (user.Password == password)
                     {

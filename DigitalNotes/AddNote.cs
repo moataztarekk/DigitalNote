@@ -1,9 +1,14 @@
-﻿namespace DigitalNotes
+﻿using DigitalNotes.Data;
+using DigitalNotes.Models;
+
+namespace DigitalNotes
 {
     public partial class AddNote : Form
     {
+        public DigitalNoteDbContext db { get; set; }
         public AddNote()
         {
+            this.db = new DigitalNoteDbContext();
             InitializeComponent();
             addNoteCategorySelector.LoadCategories();
             this.dateTimePicker1.MinDate = DateTime.Today;
@@ -18,29 +23,50 @@
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
             string title = this.TitleTextBox.Text;
-            string? category = this.addNoteCategorySelector.CategorySelected;
+            string? categoryName = this.addNoteCategorySelector.CategorySelected;
             DateTime? reminderDate = this.dateTimePicker1.Value;
-
+            Category category = null;
+            int? CategoryId = null;
             if (title.Length == 0)
             {
                 var popup = MessageBox.Show("Title cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (category.Length == 0)
+            if (categoryName.Length == 0)
             {
-                category = null;
+                
+            }
+            else
+            {
+                //foreach (var c in db.Categories)
+                //{
+                //    if (c.Name == categoryName)
+                //    {
+                //        CategoryId=c.CategoryId;
+                //    }
+                //}
+                if (db.Categories.SingleOrDefault(c => c.Name == categoryName)==null)
+                { 
+                    category=new Category() { Name=categoryName};
+                    db.Categories.Add(category);
+
+
+                }
+                category = new Category();
+
             }
 
             if (!this.ReminderEnable.Checked)
             {
                 reminderDate = null;
             }
+            
 
-            Note newNote = new Note() { NoteId = Repository.notes[Repository.notes.Count - 1].NoteId + 1, Title = title, Category = category, CreationDate = DateTime.Now, ReminderDate = reminderDate };
+            Note newNote = new Note() { Title = title, Category = db.Categories, CreationDate = DateTime.Now, ReminderDate = reminderDate };
 
-            Repository.addNote(newNote);
-            if(!Repository.Categories.Contains(category) && category != null)
+            this.db.Add(newNote);
+            if (!Repository.Categories.Contains(category) && category != null)
                 Repository.addCategory(category);
             this.Close();
         }

@@ -1,11 +1,15 @@
-﻿using System.ComponentModel;
+﻿using DigitalNotes.Data;
+using DigitalNotes.Models;
+using System.ComponentModel;
 
 namespace DigitalNotes
 {
     public partial class Home : Form
     {
+        public DigitalNoteDbContext db { get; set; }
         public Home()
         {
+            this.db = new DigitalNoteDbContext();
             InitializeComponent();
 
             this.NotesDataGrid.ContextMenuStrip = this.NotesContextMenu;
@@ -13,7 +17,7 @@ namespace DigitalNotes
 
         private void Home_Load(object sender, EventArgs e)
         {
-            BindingList<Note> notes = Repository.getNotes();
+            List<Note> notes = db.Notes.ToList();
 
             // Populate the data grid
             this.NotesDataGrid.DataSource = notes;
@@ -21,6 +25,9 @@ namespace DigitalNotes
             // Manage visible columns
             this.NotesDataGrid.Columns["Content"].Visible = false;
             this.NotesDataGrid.Columns["UserId"].Visible = false;
+
+            this.NotesDataGrid.Columns["User"].Visible = false;
+            this.NotesDataGrid.Columns["CategoryId"].Visible = false;
         }
 
 
@@ -77,7 +84,7 @@ namespace DigitalNotes
 
             int noteId = (int)selectedRow.Cells["NoteId"].Value;
 
-            var noteToEdit = Repository.notes.FirstOrDefault(n => n.NoteId == noteId);
+            var noteToEdit = db.Notes.FirstOrDefault(n => n.NoteId == noteId);
             if (noteToEdit != null)
             {
                 var editorForm = new EditNote(noteToEdit);
@@ -94,10 +101,11 @@ namespace DigitalNotes
                 var selectedRow = this.NotesDataGrid.SelectedRows[0];
                 int noteId = (int)selectedRow.Cells["NoteId"].Value;
 
-                var noteToDelete = Repository.notes.FirstOrDefault(n => n.NoteId == noteId);
+                var noteToDelete = db.Notes.FirstOrDefault(n => n.NoteId == noteId);
                 if (noteToDelete != null)
                 {
-                    Repository.notes.Remove(noteToDelete);
+                    db.Notes.Remove(noteToDelete);
+                    db.SaveChanges();
                 }
             }
         }

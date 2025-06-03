@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualBasic.Logging;
+﻿using DigitalNotes.Data;
+using DigitalNotes.Models;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +15,11 @@ namespace DigitalNotes
 {
     public partial class Register : Form
     {
-        List<User> users = Repository.getUsers();
+        public DigitalNoteDbContext db { get; set; }
 
         public Register()
         {
+            this.db = new DigitalNoteDbContext();
             InitializeComponent();
         }
 
@@ -31,9 +34,9 @@ namespace DigitalNotes
                 return;
             }
 
-            foreach (var myuser in users)
+            foreach (var myuser in db.Users)
             {
-                if (myuser.Name == username)
+                if (myuser.UserName == username)
                 {
                     var result = MessageBox.Show("User is already registered. Do you want to login?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
@@ -44,10 +47,11 @@ namespace DigitalNotes
                 }
             }
 
-            User user = new User() { Name = username, Password = password };
+            User user = new User() { UserName = username, Password = password };
             MessageBox.Show("You entered: " + username);
             MessageBox.Show("You entered: " + password);
-            Repository.addUser(user);
+            db.Add(user);
+            db.SaveChanges();
             this.Close();
         }
     }

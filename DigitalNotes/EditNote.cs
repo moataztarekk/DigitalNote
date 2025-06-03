@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DigitalNotes.Data;
+using DigitalNotes.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +24,7 @@ namespace DigitalNotes
             this.TitleTextBox.Text = this.NoteToEdit.Title;
             this.categorySelectorv11.LoadCategories();
 
-            this.categorySelectorv11.CategorySelected = this.NoteToEdit.Category;
+            //this.categorySelectorv11.CategorySelected = this.NoteToEdit.Category;
             this.ReminderEnable.Checked = true ? this.NoteToEdit.ReminderDate != null : false;
             this.dateTimePicker1.Enabled = this.ReminderEnable.Checked;
         }
@@ -40,10 +42,10 @@ namespace DigitalNotes
                 return;
             }
 
-            this.NoteToEdit.Title = this.TitleTextBox.Text;
-            this.NoteToEdit.Category = categorySelectorv11.CategorySelected;
-            if(!Repository.Categories.Contains(categorySelectorv11.CategorySelected))
-                Repository.addCategory(categorySelectorv11.CategorySelected);
+            //this.NoteToEdit.Title = this.TitleTextBox.Text;
+            //this.NoteToEdit.Category = categorySelectorv11.CategorySelected;
+            //if (!Repository.Categories.Contains(categorySelectorv11.CategorySelected))
+            //    Repository.addCategory(categorySelectorv11.CategorySelected);
 
             if (this.ReminderEnable.Checked == true)
             {

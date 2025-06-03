@@ -21,16 +21,16 @@ namespace DigitalNotes
             InitializeComponent();
 
             //Subscribe if the User choose from the list 
-            CBCategorySelector.SelectedIndexChanged += CBCategorySelector_SelectedIndexChanged;
+            //CBCategorySelector.SelectedIndexChanged += CBCategorySelector_SelectedIndexChanged;
 
             //if the user add new category
-            CBCategorySelector.TextChanged += CBCategorySelector_TextChanged;
+            //CBCategorySelector.TextChanged += CBCategorySelector_TextChanged;
         }
 
 
         public void LoadCategories()
         {
-            CBCategorySelector.DataSource = Repository.Categories;
+            //CBCategorySelector.DataSource = Repository.Categories;
         }
 
         //this property to get or set the category
@@ -48,21 +48,21 @@ namespace DigitalNotes
 
 
         //if the user choose existed category Invoke
-        private void CBCategorySelector_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CategoryChanged?.Invoke(this, EventArgs.Empty);
-        }
+        //private void CBCategorySelector_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    CategoryChanged?.Invoke(this, EventArgs.Empty);
+        //}
 
         //if the user add new category Invoke
-        private void CBCategorySelector_TextChanged(object sender, EventArgs e)
-        {
-            CategoryChanged?.Invoke(this, EventArgs.Empty);
-        }
+        //private void CBCategorySelector_TextChanged(object sender, EventArgs e)
+        //{
+        //    CategoryChanged?.Invoke(this, EventArgs.Empty);
+        //}
 
 
-        private void CategorySelectorv1_Load(object sender, EventArgs e)
-        {
+        //private void CategorySelectorv1_Load(object sender, EventArgs e)
+        //{
 
-        }
+        ////}
     }
 }

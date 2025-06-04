@@ -9,11 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DigitalNotes.Models;
 
 namespace DigitalNotes
 {
     public partial class Login : Form
     {
+       
         public DigitalNoteDbContext db { get; set; }
 
         public Login()
@@ -24,6 +26,7 @@ namespace DigitalNotes
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
+            
             string username = LogUsernameBox.Text;
             string password = LogPasswordBox.Text;
 
@@ -40,7 +43,7 @@ namespace DigitalNotes
                     if (user.Password == password)
                     {
                         MessageBox.Show("Login Successfully", "Login", MessageBoxButtons.OK);
-                        GoToMainForm();
+                        GoToMainForm(user.Id);
                     }
                     else
                     {
@@ -72,9 +75,9 @@ namespace DigitalNotes
             this.Show();
         }
 
-        private void GoToMainForm()
+        private void GoToMainForm(int userId)
         {
-            Home home = new Home();
+            Home home = new Home(userId);
             this.Hide();
             home.ShowDialog();
             LogUsernameBox.Text = "";

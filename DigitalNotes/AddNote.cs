@@ -1,13 +1,16 @@
 ﻿using DigitalNotes.Data;
 using DigitalNotes.Models;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace DigitalNotes
 {
     public partial class AddNote : Form
     {
+        int userId;
         public DigitalNoteDbContext db { get; set; }
-        public AddNote()
+        public AddNote(int userId)
         {
+            this.userId = userId;
             this.db = new DigitalNoteDbContext();
             InitializeComponent();
             addNoteCategorySelector.LoadCategories();
@@ -32,42 +35,27 @@ namespace DigitalNotes
                 var popup = MessageBox.Show("Title cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            if (categoryName.Length == 0)
+            
+            if (categoryName.Length != 0)
             {
-                
-            }
-            else
-            {
-                //foreach (var c in db.Categories)
-                //{
-                //    if (c.Name == categoryName)
-                //    {
-                //        CategoryId=c.CategoryId;
-                //    }
-                //}
-                if (db.Categories.SingleOrDefault(c => c.Name == categoryName)==null)
-                { 
-                    category=new Category() { Name=categoryName};
-                    db.Categories.Add(category);
-
-
+                category = db.Categories.SingleOrDefault(c => c.Name == categoryName);
+                if (category == null)
+                {
+                    category = new Category() { Name = categoryName };
+                    db.Categories.Add(category); 
+                    db.SaveChanges();
                 }
-                category = new Category();
-
+                CategoryId = category.CategoryId;
             }
 
             if (!this.ReminderEnable.Checked)
             {
                 reminderDate = null;
             }
-            
-
-            Note newNote = new Note() { Title = title, Category = db.Categories, CreationDate = DateTime.Now, ReminderDate = reminderDate };
+            Note newNote = new Note() { Title = title, CategoryId = CategoryId, CreationDate = DateTime.Now, ReminderDate = reminderDate, UserId = userId };
 
             this.db.Add(newNote);
-            if (!Repository.Categories.Contains(category) && category != null)
-                Repository.addCategory(category);
+            this.db.SaveChanges();
             this.Close();
         }
 

@@ -9,22 +9,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DigitalNotes.Data;
 
 namespace DigitalNotes
 {
     public partial class EditNote : Form
     {
+
+        DigitalNoteDbContext db = new DigitalNoteDbContext();
+        int? noteId = null; 
+        Category category = null;
+        int? CategoryId = null;
         Note NoteToEdit;
 
-        public EditNote(Note note)
+        public EditNote(int noteId)
         {
             InitializeComponent();
 
-            this.NoteToEdit = note;
+            this.noteId = noteId;
+            NoteToEdit = db.Notes.SingleOrDefault(n => n.NoteId == noteId);
             this.TitleTextBox.Text = this.NoteToEdit.Title;
             this.categorySelectorv11.LoadCategories();
-
-            //this.categorySelectorv11.CategorySelected = this.NoteToEdit.Category;
+            if (NoteToEdit.Category != null) 
+            {
+                this.categorySelectorv11.CategorySelected = this.NoteToEdit.Category.Name;
+            }
+            else 
+            {
+                this.categorySelectorv11.CategorySelected = "";
+            }
+            
             this.ReminderEnable.Checked = true ? this.NoteToEdit.ReminderDate != null : false;
             this.dateTimePicker1.Enabled = this.ReminderEnable.Checked;
         }
@@ -42,10 +56,19 @@ namespace DigitalNotes
                 return;
             }
 
-            //this.NoteToEdit.Title = this.TitleTextBox.Text;
-            //this.NoteToEdit.Category = categorySelectorv11.CategorySelected;
-            //if (!Repository.Categories.Contains(categorySelectorv11.CategorySelected))
-            //    Repository.addCategory(categorySelectorv11.CategorySelected);
+            this.NoteToEdit.Title = this.TitleTextBox.Text;
+            category = db.Categories.SingleOrDefault(c => c.Name == categorySelectorv11.CategorySelected);
+
+            if (category == null) 
+            {
+                category = new Category() { Name = categorySelectorv11.CategorySelected };
+                db.Categories.Add(category);
+                db.SaveChanges();
+            }
+            
+            this.NoteToEdit.CategoryId = category.CategoryId;
+
+
 
             if (this.ReminderEnable.Checked == true)
             {
@@ -55,7 +78,7 @@ namespace DigitalNotes
             {
                 this.NoteToEdit.ReminderDate = null;
             }
-
+            db.SaveChanges();
             this.Close();
         }
 

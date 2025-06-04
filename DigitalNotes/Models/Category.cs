@@ -15,5 +15,12 @@ namespace DigitalNotes.Models
         public String? Name { get; set; }
 
         public virtual ICollection<Note> Notes { get; set; } = new HashSet<Note>();
+
+        public override string ToString()
+        {
+            if (Name != null)
+                return $"{Name}";
+            else return "";
+        }
     }
 }

@@ -46,14 +46,14 @@ namespace DigitalNotes
         //{
         //    Categories.Add(category);
         //}
-        //public static void addUser(User user) 
+        //public static void addUser(User user)
         //{
         //    users.Add(user);
         //}
 
-        //public static List<User> getUsers() 
+        //public static List<User> getUsers()
         //{
-        //    return users; 
+        //    return users;
         //}
 
         //public static void addNote(Note note)

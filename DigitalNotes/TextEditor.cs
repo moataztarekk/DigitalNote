@@ -1,21 +1,31 @@
-﻿namespace WFDemo
+﻿using DigitalNotes.Models;
+using DigitalNotes.Data;
+
+namespace WFDemo
 {
     public partial class TextEditor : Form
     {
+        DigitalNoteDbContext db = new DigitalNoteDbContext();
+        private int noteId;
+        Note note { get; set; }
         private string currentFilePath = "";
         private Stack<string> undoStack = new Stack<string>();
         private Stack<string> redoStack = new Stack<string>();
         private bool isInternalChange = false;
         private bool isTextChanged=false;
 
-        public TextEditor()
+        public TextEditor(int noteId)
         {
+            this.noteId = noteId;
             InitializeComponent();
             this.richTextBoxNote.TextChanged += new EventHandler(this.richTextBoxNote_TextChanged);
             this.Load += new EventHandler(this.TextEditor_Load);
         }
         private void TextEditor_Load(object sender, EventArgs e)
         {
+
+            note = db.Notes.First(n => n.NoteId == noteId);
+            richTextBoxNote.Rtf = note.Content; 
             undoStack.Clear();
             redoStack.Clear();
             undoStack.Push(richTextBoxNote.Rtf);
@@ -219,14 +229,16 @@
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(currentFilePath))
-            {
-                SaveContent(currentFilePath);
-            }
-            else
-            {
-                BtnSaveAs_Click(sender, e);
-            }
+
+            SaveContent("");
+            //if (!string.IsNullOrEmpty(currentFilePath))
+            //{
+            //    SaveContent(currentFilePath);
+            //}
+            //else
+            //{
+            //    BtnSaveAs_Click(sender, e);
+            //}
         }
         private void BtnSaveAs_Click(object sender, EventArgs e)
         {
@@ -240,13 +252,16 @@
         }
         private void SaveContent(string path)
         {
-            if (Path.GetExtension(path).ToLower() == ".rtf")
-                richTextBoxNote.SaveFile(path, RichTextBoxStreamType.RichText);
-            else
-                File.WriteAllText(path, richTextBoxNote.Text);
+            Note note = db.Notes.FirstOrDefault(n => n.NoteId == noteId);
+            note.Content=richTextBoxNote.Rtf;
+            db.SaveChanges();
+            //if (Path.GetExtension(path).ToLower() == ".rtf")
+            //    richTextBoxNote.SaveFile(path, RichTextBoxStreamType.RichText);
+            //else
+            //    File.WriteAllText(path, richTextBoxNote.Text);
 
-            isTextChanged = false;
-            MessageBox.Show("File saved successfully.");
+            //isTextChanged = false;
+            //MessageBox.Show("File saved successfully.");
         }
         private void TakeSnapshot()
         {

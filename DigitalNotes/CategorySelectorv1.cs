@@ -8,11 +8,13 @@ using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DigitalNotes.Data;
 
 namespace DigitalNotes
 {
     public partial class CategorySelectorv1 : UserControl
     {
+        private DigitalNoteDbContext db = new DigitalNoteDbContext();
         public event EventHandler CategoryChanged;
 
 
@@ -30,7 +32,7 @@ namespace DigitalNotes
 
         public void LoadCategories()
         {
-            //CBCategorySelector.DataSource = Repository.Categories;
+            CBCategorySelector.DataSource = db.Categories.ToList();
         }
 
         //this property to get or set the category

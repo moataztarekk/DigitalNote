@@ -1,14 +1,18 @@
 ﻿using DigitalNotes.Data;
 using DigitalNotes.Models;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
+using WFDemo;
 
 namespace DigitalNotes
 {
     public partial class Home : Form
     {
+        int currentUserId { get; set; }
         public DigitalNoteDbContext db { get; set; }
-        public Home()
+        public Home(int userId)
         {
+            currentUserId=userId;
             this.db = new DigitalNoteDbContext();
             InitializeComponent();
 
@@ -17,11 +21,11 @@ namespace DigitalNotes
 
         private void Home_Load(object sender, EventArgs e)
         {
-            List<Note> notes = db.Notes.ToList();
+
+            List<Note> notes = db.Notes.Where(u => u.UserId == currentUserId).Include(n => n.Category).ToList();
 
             // Populate the data grid
             this.NotesDataGrid.DataSource = notes;
-
             // Manage visible columns
             this.NotesDataGrid.Columns["Content"].Visible = false;
             this.NotesDataGrid.Columns["UserId"].Visible = false;
@@ -34,6 +38,7 @@ namespace DigitalNotes
         // Double clicking a row opens its correponding note.
         private void NotesDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             // If the table header is double clicked; do nothing
             if (e.RowIndex == -1)
             {
@@ -42,13 +47,24 @@ namespace DigitalNotes
             int noteId = (int)this.NotesDataGrid.Rows[e.RowIndex].Cells["NoteId"].Value;
 
             // Open selected note here
-            var popup = MessageBox.Show($"Note: {noteId} opened", "Note Open", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //var popup = MessageBox.Show($"Note: {noteId} opened", "Note Open", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var Editor = new TextEditor(noteId);
+            Editor.Show();
+            this.Refresh();
         }
 
         private void NewNoteBtn_Click(object sender, EventArgs e)
         {
-            var addNoteDialog = new AddNote();
+            var addNoteDialog = new AddNote(currentUserId);
             addNoteDialog.ShowDialog();
+            //this.Refresh();
+            using (var db = new DigitalNoteDbContext())
+            {
+                this.NotesDataGrid.DataSource = db.Notes
+                    .Where(n => n.UserId == currentUserId)
+                    .Include(n => n.Category)
+                    .ToList();
+            }
         }
 
         private void LogoutBtn_Click(object sender, EventArgs e)
@@ -87,9 +103,19 @@ namespace DigitalNotes
             var noteToEdit = db.Notes.FirstOrDefault(n => n.NoteId == noteId);
             if (noteToEdit != null)
             {
-                var editorForm = new EditNote(noteToEdit);
+                var editorForm = new EditNote(noteId);
                 editorForm.ShowDialog();
-                this.Refresh();
+                //this.Update();
+                /*this.NotesDataGrid.DataSource = db.Notes.Where(n => n.UserId == currentUserId).ToList()*/;
+                //this.Refresh();
+                using (var db = new DigitalNoteDbContext())
+                {
+                    this.NotesDataGrid.DataSource = db.Notes
+                        .Where(n => n.UserId == currentUserId)
+                        .Include(n => n.Category)
+                        .ToList();
+                }
+
             }
         }
 

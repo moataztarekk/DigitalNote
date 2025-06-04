@@ -155,6 +155,7 @@
             ForeColor = Color.FromArgb(64, 64, 64);
             Margin = new Padding(3, 4, 3, 4);
             Name = "AddNote";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "AddNote";
             Load += AddNote_Load;
             ResumeLayout(false);

@@ -149,6 +149,7 @@
             Controls.Add(ConfirmButton);
             Margin = new Padding(3, 4, 3, 4);
             Name = "EditNote";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "EditNote";
             ResumeLayout(false);
             PerformLayout();

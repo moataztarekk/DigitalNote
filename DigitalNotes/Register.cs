@@ -54,5 +54,10 @@ namespace DigitalNotes
             db.SaveChanges();
             this.Close();
         }
+
+        private void Register_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -51,7 +51,7 @@
             // 
             // flowLayoutPanelTop
             // 
-            flowLayoutPanelTop.BackColor = Color.PaleTurquoise;
+            flowLayoutPanelTop.BackColor = Color.FromArgb(64, 64, 64);
             flowLayoutPanelTop.Controls.Add(BtnOpen);
             flowLayoutPanelTop.Controls.Add(BtnBold);
             flowLayoutPanelTop.Controls.Add(BtnItalic);
@@ -239,7 +239,7 @@
             // 
             // richTextBoxNote
             // 
-            richTextBoxNote.BackColor = Color.Azure;
+            richTextBoxNote.BackColor = Color.White;
             richTextBoxNote.Dock = DockStyle.Fill;
             richTextBoxNote.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             richTextBoxNote.Location = new Point(0, 45);
@@ -263,8 +263,6 @@
             flowLayoutPanelTop.ResumeLayout(false);
             flowLayoutPanelTop.PerformLayout();
             ResumeLayout(false);
-
-
         }
 
         #endregion

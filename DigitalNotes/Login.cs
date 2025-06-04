@@ -15,7 +15,7 @@ namespace DigitalNotes
 {
     public partial class Login : Form
     {
-       
+
         public DigitalNoteDbContext db { get; set; }
 
         public Login()
@@ -26,7 +26,7 @@ namespace DigitalNotes
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
-            
+
             string username = LogUsernameBox.Text;
             string password = LogPasswordBox.Text;
 
@@ -83,6 +83,11 @@ namespace DigitalNotes
             LogUsernameBox.Text = "";
             LogPasswordBox.Text = "";
             this.Show();
+        }
+
+        private void LogPasswordLbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

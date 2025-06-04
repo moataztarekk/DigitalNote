@@ -43,7 +43,8 @@
             // 
             // NewNoteBtn
             // 
-            NewNoteBtn.Location = new Point(24, 16);
+            NewNoteBtn.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            NewNoteBtn.Location = new Point(67, 16);
             NewNoteBtn.Margin = new Padding(3, 4, 3, 4);
             NewNoteBtn.Name = "NewNoteBtn";
             NewNoteBtn.Size = new Size(119, 31);
@@ -54,7 +55,8 @@
             // 
             // LoadNoteBtn
             // 
-            LoadNoteBtn.Location = new Point(24, 55);
+            LoadNoteBtn.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LoadNoteBtn.Location = new Point(67, 55);
             LoadNoteBtn.Margin = new Padding(3, 4, 3, 4);
             LoadNoteBtn.Name = "LoadNoteBtn";
             LoadNoteBtn.Size = new Size(119, 31);
@@ -65,7 +67,8 @@
             // 
             // NotificationsBtn
             // 
-            NotificationsBtn.Location = new Point(24, 93);
+            NotificationsBtn.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            NotificationsBtn.Location = new Point(67, 94);
             NotificationsBtn.Margin = new Padding(3, 4, 3, 4);
             NotificationsBtn.Name = "NotificationsBtn";
             NotificationsBtn.Size = new Size(119, 31);
@@ -75,7 +78,8 @@
             // 
             // LogoutBtn
             // 
-            LogoutBtn.Location = new Point(24, 553);
+            LogoutBtn.Font = new Font("Tahoma", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LogoutBtn.Location = new Point(67, 556);
             LogoutBtn.Margin = new Padding(3, 4, 3, 4);
             LogoutBtn.Name = "LogoutBtn";
             LogoutBtn.Size = new Size(119, 31);
@@ -88,16 +92,17 @@
             // 
             NotesDataGrid.AllowUserToAddRows = false;
             NotesDataGrid.AllowUserToOrderColumns = true;
+            NotesDataGrid.BackgroundColor = Color.White;
             NotesDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             NotesDataGrid.Dock = DockStyle.Right;
-            NotesDataGrid.Location = new Point(175, 0);
+            NotesDataGrid.Location = new Point(249, 0);
             NotesDataGrid.Margin = new Padding(3, 4, 3, 4);
             NotesDataGrid.Name = "NotesDataGrid";
             NotesDataGrid.ReadOnly = true;
             NotesDataGrid.RowHeadersWidth = 51;
             NotesDataGrid.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             NotesDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            NotesDataGrid.Size = new Size(739, 600);
+            NotesDataGrid.Size = new Size(672, 600);
             NotesDataGrid.TabIndex = 4;
             NotesDataGrid.CellContentClick += NotesDataGrid_CellContentClick;
             NotesDataGrid.CellDoubleClick += NotesDataGrid_CellDoubleClick;
@@ -129,7 +134,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            BackColor = Color.FromArgb(64, 64, 64);
+            ClientSize = new Size(921, 600);
             Controls.Add(NotesDataGrid);
             Controls.Add(LogoutBtn);
             Controls.Add(NotificationsBtn);

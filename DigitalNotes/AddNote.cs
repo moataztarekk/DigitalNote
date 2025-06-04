@@ -35,14 +35,14 @@ namespace DigitalNotes
                 var popup = MessageBox.Show("Title cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             if (categoryName.Length != 0)
             {
                 category = db.Categories.SingleOrDefault(c => c.Name == categoryName);
                 if (category == null)
                 {
                     category = new Category() { Name = categoryName };
-                    db.Categories.Add(category); 
+                    db.Categories.Add(category);
                     db.SaveChanges();
                 }
                 CategoryId = category.CategoryId;
@@ -70,6 +70,16 @@ namespace DigitalNotes
         }
 
         private void categorySelectorv11_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReminderDateLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TitleLabel_Click(object sender, EventArgs e)
         {
 
         }

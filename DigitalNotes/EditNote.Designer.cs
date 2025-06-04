@@ -52,10 +52,11 @@
             // 
             // CancelButton
             // 
-            CancelButton.Location = new Point(346, 292);
+            CancelButton.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CancelButton.Location = new Point(315, 293);
             CancelButton.Margin = new Padding(3, 4, 3, 4);
             CancelButton.Name = "CancelButton";
-            CancelButton.Size = new Size(86, 31);
+            CancelButton.Size = new Size(112, 44);
             CancelButton.TabIndex = 16;
             CancelButton.Text = "Cancel";
             CancelButton.UseVisualStyleBackColor = true;
@@ -64,9 +65,11 @@
             // ReminderDateLabel
             // 
             ReminderDateLabel.AutoSize = true;
-            ReminderDateLabel.Location = new Point(78, 225);
+            ReminderDateLabel.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ReminderDateLabel.ForeColor = Color.White;
+            ReminderDateLabel.Location = new Point(69, 220);
             ReminderDateLabel.Name = "ReminderDateLabel";
-            ReminderDateLabel.Size = new Size(73, 20);
+            ReminderDateLabel.Size = new Size(109, 24);
             ReminderDateLabel.TabIndex = 15;
             ReminderDateLabel.Text = "Reminder";
             // 
@@ -82,9 +85,11 @@
             // CategoryLabel
             // 
             CategoryLabel.AutoSize = true;
-            CategoryLabel.Location = new Point(81, 143);
+            CategoryLabel.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CategoryLabel.ForeColor = Color.White;
+            CategoryLabel.Location = new Point(69, 149);
             CategoryLabel.Name = "CategoryLabel";
-            CategoryLabel.Size = new Size(69, 20);
+            CategoryLabel.Size = new Size(101, 24);
             CategoryLabel.TabIndex = 12;
             CategoryLabel.Text = "Category";
             // 
@@ -99,18 +104,21 @@
             // TitleLabel
             // 
             TitleLabel.AutoSize = true;
-            TitleLabel.Location = new Point(111, 65);
+            TitleLabel.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TitleLabel.ForeColor = Color.White;
+            TitleLabel.Location = new Point(69, 63);
             TitleLabel.Name = "TitleLabel";
-            TitleLabel.Size = new Size(38, 20);
+            TitleLabel.Size = new Size(54, 24);
             TitleLabel.TabIndex = 10;
             TitleLabel.Text = "Title";
             // 
             // ConfirmButton
             // 
-            ConfirmButton.Location = new Point(203, 292);
+            ConfirmButton.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ConfirmButton.Location = new Point(168, 293);
             ConfirmButton.Margin = new Padding(3, 4, 3, 4);
             ConfirmButton.Name = "ConfirmButton";
-            ConfirmButton.Size = new Size(86, 31);
+            ConfirmButton.Size = new Size(112, 44);
             ConfirmButton.TabIndex = 9;
             ConfirmButton.Text = "Confirm";
             ConfirmButton.UseVisualStyleBackColor = true;
@@ -128,6 +136,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(511, 383);
             Controls.Add(categorySelectorv11);
             Controls.Add(ReminderEnable);

@@ -38,44 +38,48 @@
             // regUsernameLbl
             // 
             regUsernameLbl.AutoSize = true;
-            regUsernameLbl.Location = new Point(60, 70);
+            regUsernameLbl.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            regUsernameLbl.ForeColor = Color.White;
+            regUsernameLbl.Location = new Point(48, 96);
             regUsernameLbl.Name = "regUsernameLbl";
-            regUsernameLbl.Size = new Size(60, 15);
+            regUsernameLbl.Size = new Size(112, 24);
             regUsernameLbl.TabIndex = 0;
             regUsernameLbl.Text = "Username";
             // 
             // regPasswordLbl
             // 
             regPasswordLbl.AutoSize = true;
-            regPasswordLbl.Location = new Point(60, 134);
+            regPasswordLbl.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            regPasswordLbl.ForeColor = Color.White;
+            regPasswordLbl.ImageAlign = ContentAlignment.BottomCenter;
+            regPasswordLbl.Location = new Point(48, 178);
             regPasswordLbl.Name = "regPasswordLbl";
-            regPasswordLbl.Size = new Size(57, 15);
+            regPasswordLbl.Size = new Size(107, 24);
             regPasswordLbl.TabIndex = 1;
             regPasswordLbl.Text = "Password";
             // 
             // regUsernameBox
             // 
-            regUsernameBox.Location = new Point(164, 70);
-            regUsernameBox.Margin = new Padding(3, 2, 3, 2);
+            regUsernameBox.BackColor = Color.White;
+            regUsernameBox.Location = new Point(187, 93);
             regUsernameBox.Name = "regUsernameBox";
-            regUsernameBox.Size = new Size(237, 23);
+            regUsernameBox.Size = new Size(270, 27);
             regUsernameBox.TabIndex = 2;
             // 
             // regPasswordBox
             // 
-            regPasswordBox.Location = new Point(164, 134);
-            regPasswordBox.Margin = new Padding(3, 2, 3, 2);
+            regPasswordBox.Location = new Point(187, 179);
             regPasswordBox.Name = "regPasswordBox";
-            regPasswordBox.Size = new Size(237, 23);
+            regPasswordBox.Size = new Size(270, 27);
             regPasswordBox.TabIndex = 3;
             // 
             // registerBtn
             // 
-            registerBtn.BackColor = SystemColors.Info;
-            registerBtn.Location = new Point(164, 214);
-            registerBtn.Margin = new Padding(3, 2, 3, 2);
+            registerBtn.BackColor = SystemColors.ControlLightLight;
+            registerBtn.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            registerBtn.Location = new Point(187, 285);
             registerBtn.Name = "registerBtn";
-            registerBtn.Size = new Size(137, 36);
+            registerBtn.Size = new Size(157, 48);
             registerBtn.TabIndex = 4;
             registerBtn.Text = "Register";
             registerBtn.UseVisualStyleBackColor = false;
@@ -83,18 +87,18 @@
             // 
             // Register
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(467, 309);
+            BackColor = Color.FromArgb(64, 64, 64);
+            ClientSize = new Size(534, 412);
             Controls.Add(registerBtn);
             Controls.Add(regPasswordBox);
             Controls.Add(regUsernameBox);
             Controls.Add(regPasswordLbl);
             Controls.Add(regUsernameLbl);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Register";
             Text = "Register";
+            Load += Register_Load;
             ResumeLayout(false);
             PerformLayout();
         }

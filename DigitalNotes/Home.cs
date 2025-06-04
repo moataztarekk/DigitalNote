@@ -133,6 +133,14 @@ namespace DigitalNotes
                     db.Notes.Remove(noteToDelete);
                     db.SaveChanges();
                 }
+
+            }
+            using (var db = new DigitalNoteDbContext())
+            {
+                this.NotesDataGrid.DataSource = db.Notes
+                    .Where(n => n.UserId == currentUserId)
+                    .Include(n => n.Category)
+                    .ToList();
             }
         }
 
@@ -157,15 +165,23 @@ namespace DigitalNotes
 
                 Note newnote = new Note()
                 {
-                    NoteId = Repository.getNotes().Count + 1,
                     Title = Path.GetFileNameWithoutExtension(filepath),
-                    Category = "un-catogrized",
+                    Category = null,
                     CreationDate = DateTime.Now,
-                    UserId = 1,
+                    UserId = currentUserId,
                     Content = rtfcontent
+
                 };
 
-                Repository.addNote(newnote);
+                db.Add(newnote);
+                db.SaveChanges();
+                using (var db = new DigitalNoteDbContext())
+                {
+                    this.NotesDataGrid.DataSource = db.Notes
+                        .Where(n => n.UserId == currentUserId)
+                        .Include(n => n.Category)
+                        .ToList();
+                }
                 MessageBox.Show("Note has been loaded scuessfully!!");
 
 

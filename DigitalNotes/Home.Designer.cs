@@ -61,6 +61,7 @@
             LoadNoteBtn.TabIndex = 1;
             LoadNoteBtn.Text = "Load Note";
             LoadNoteBtn.UseVisualStyleBackColor = true;
+            LoadNoteBtn.Click += LoadNoteBtn_Click;
             // 
             // NotificationsBtn
             // 

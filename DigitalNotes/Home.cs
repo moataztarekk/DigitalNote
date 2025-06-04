@@ -140,5 +140,38 @@ namespace DigitalNotes
         {
 
         }
+
+        private void LoadNoteBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog Loadfile = new OpenFileDialog();
+            Loadfile.Filter= "RTF files (*.rtf)|*.rtf";
+            if (Loadfile.ShowDialog() == DialogResult.OK)
+            {
+                string filepath = Loadfile.FileName;
+                string rtfcontent;
+
+                using (StreamReader reader = new StreamReader(filepath))
+                {
+                    rtfcontent = reader.ReadToEnd();
+                }
+
+                Note newnote = new Note()
+                {
+                    NoteId = Repository.getNotes().Count + 1,
+                    Title = Path.GetFileNameWithoutExtension(filepath),
+                    Category = "un-catogrized",
+                    CreationDate = DateTime.Now,
+                    UserId = 1,
+                    Content = rtfcontent
+                };
+
+                Repository.addNote(newnote);
+                MessageBox.Show("Note has been loaded scuessfully!!");
+
+
+            }
+
+
+        }
     }
 }

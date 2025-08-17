@@ -16,7 +16,7 @@ namespace DigitalNotes.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = "Server=LAPTOP-2SMKURM4;Database=DigitalNotesDb;Trusted_Connection=True;TrustServerCertificate=true";
+            string connectionString = "Server=DESKTOP-PGGKAES\\SQLEXPRESS;Database=DigitalNotesDb;Trusted_Connection=True;TrustServerCertificate=true";
             optionsBuilder.UseSqlServer(connectionString);
 
         }

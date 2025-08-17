@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DigitalNotes.Migrations
 {
     [DbContext(typeof(DigitalNoteDbContext))]
-    [Migration("20250603203029_MigrationV01")]
-    partial class MigrationV01
+    [Migration("20250621172410_Init01")]
+    partial class Init01
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DigitalNotes.Migrations
 {
     /// <inheritdoc />
-    public partial class MigrationV01 : Migration
+    public partial class Init01 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
